@@ -172,7 +172,7 @@
               <li class="user-footer">
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                 <form action="{{ route('admin.logout') }}" method="POST">
-                    @csrf 
+                    @csrf
                     <button type="submit" class="btn btn-default btn-flat float-end">Sign out</button>
                 </form>
               </li>
@@ -209,8 +209,8 @@
 
           <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation"
             aria-label="Main navigation" data-accordion="false" id="navigation">
-            
-            
+
+
             <li class="nav-item {{ request()->routeIs('admin.dashboard') ? "menu-active" : "" }}">
               <a href="{{ route('admin.dashboard') }}" class="nav-link ">
                 <i class="nav-icon bi bi-speedometer"></i>
@@ -225,6 +225,15 @@
                 <i class="nav-icon bi bi-grid"></i>
                 <p>
                   Category Management
+                </p>
+              </a>
+            </li>
+
+              <li class="nav-item {{ request()->is('admin/categories*') ? "menu-active" : "" }}">
+              <a href="{{ route('admin.categories') }}" class="nav-link ">
+                <i class="nav-icon bi bi-grid"></i>
+                <p>
+                  Subcategory Management
                 </p>
               </a>
             </li>

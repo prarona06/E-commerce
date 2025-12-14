@@ -8,5 +8,10 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    
+    public function subcategeories()
+    {
+        return $this->hasMany(subcategeory::class, 'category_id', 'id');
+    }
+
+
 }
