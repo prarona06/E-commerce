@@ -229,9 +229,9 @@
               </a>
             </li>
 
-              <li class="nav-item {{ request()->is('admin/categories*') ? "menu-active" : "" }}">
-              <a href="{{ route('admin.categories') }}" class="nav-link ">
-                <i class="nav-icon bi bi-grid"></i>
+              <li class="nav-item {{ request()->is('admin/subcategories*') ? "menu-active" : "" }}">
+              <a href="{{ route('admin.subcategories') }}" class="nav-link ">
+                <i class="nav-icon fas fa-tree"></i>
                 <p>
                   Subcategory Management
                 </p>

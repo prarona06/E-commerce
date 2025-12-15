@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 
 Route::prefix('admin')->group(function () {
-    
+
     # dashboard
     Route::get('/', [AdminController::class, 'index'])
     ->name('admin.dashboard')->middleware('admin.auth');
@@ -23,7 +23,7 @@ Route::prefix('admin')->group(function () {
 
     # admin.auth middleware
     Route::middleware(['admin.auth'])->group(function () {
-        
+
         # category
         Route::controller(CategoryController::class)
         ->prefix('categories')->group(function () {
@@ -43,6 +43,13 @@ Route::prefix('admin')->group(function () {
 
 
     });
-
-
+    # subcategory
+Route::controller(\App\Http\Controllers\Admin\subcategoryController::class)
+->prefix('subcategories')->group(function () {
+     Route::get('/', 'index')->name('admin.subcategories');
+     Route::post('/store', 'store')->name('admin.subcategories.store');
+     Route::get('/edit/{id}', 'edit')->name('admin.subcategories.edit');
+     Route::patch('/update/{id}', 'update')->name('admin.subcategories.update');
+     Route::delete('/delete/{id}', 'destroy')->name('admin.subcategories.delete');
+});
 });
