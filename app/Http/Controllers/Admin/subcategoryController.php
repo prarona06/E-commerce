@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\Subcategory;  
+use App\Models\Subcategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -38,3 +38,9 @@ class SubcategoryController extends Controller
             ->with('success', 'Subcategory added successfully');
     }
 }
+    public function edit($id)
+    {
+        $data['subcategory'] = Subcategory::findOrFail($id);
+        $data['categories'] = Category::get();
+        return view('admin.subcategories.edit', $data);
+    }
