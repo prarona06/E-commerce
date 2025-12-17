@@ -38,9 +38,4 @@ class SubcategoryController extends Controller
             ->with('success', 'Subcategory added successfully');
     }
 }
-    public function edit($id)
-    {
-        $data['subcategory'] = Subcategory::findOrFail($id);
-        $data['categories'] = Category::get();
-        return view('admin.subcategories.edit', $data);
-    }
+    
