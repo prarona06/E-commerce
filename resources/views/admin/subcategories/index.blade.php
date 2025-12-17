@@ -34,29 +34,31 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Name</th>
+                                     <th scope="col">Category</th>
+                                    <th scope="col">Subcategory</th>
                                     <th scope="col">Serial No</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                             {{-- @foreach ($categories as $category)
+                          @foreach ($subcategories as sub$category)
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
-                                        <td>{{ $category->name }}</td>
-                                        <td>{{ $category->serial_no }}</td>
+                                          <td>{{ $subcategory->category->name }}</td>
+                                        <td>{{ $subcategory->name }}</td>
+                                        <td>{{ $subcategory->serial_no }}</td>
 
-                                        <td>{{ $category->status == 'active' ? 'Active' : 'Inactive' }}</td>
+                                        <td>{{ $subcategory->status == 'active' ? 'Active' : 'Inactive' }}</td>
 
                                         <td>
 
-                                            <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                            <a href="{{ route('admin.subcategories.edit', $subcategory->id) }}"
                                                 class="btn btn-primary">
                                                 <i class="fas fa-edit"></i>
                                             </a>
 
-                                            <form action="{{ route('admin.categories.delete', $category->id) }}"
+                                            <form action="{{ route('admin.subcategories.delete', $subcategory->id) }}"
                                                 method="POST" class="d-inline-block trash">
                                                 @csrf
                                                 @method('DELETE')
@@ -67,7 +69,7 @@
 
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
