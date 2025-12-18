@@ -69,3 +69,12 @@ class subcategoryController extends Controller
             ->route('admin.subcategories')
             ->with('success', 'Subcategory updated successfully');
     }
+            public function destroy($id)
+            {
+$subcategory = Subcategory::findOrFail($id);
+        $subcategory->delete();
+session()->flash('success', 'Subcategory deleted successfully');
+        return redirect()->route('admin.subcategories');
+
+    }
+}
