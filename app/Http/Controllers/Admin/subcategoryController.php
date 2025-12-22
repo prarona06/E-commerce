@@ -15,7 +15,7 @@ class subcategoryController extends Controller
     public function index()
     {
         $data['categories'] = Category::get();
-        $data['subcategories']=Subcategory::with('category')->get();//eger loding or lezy loading
+        $data['subcategories']=subcategeory::with('category')->get();//eger loding or lezy loading
         return view('admin.subcategories.index', $data);
     }
 
@@ -28,7 +28,7 @@ class subcategoryController extends Controller
             'status' => 'required|in:active,inactive'
         ]);
 
-        $subcategory = new Subcategory();
+        $subcategory = new subcategeory();
 
         $subcategory->category_id = $request->category_id;
         $subcategory->name = $request->name;
@@ -43,7 +43,7 @@ class subcategoryController extends Controller
     }
     public function edit($id)
     {
-        $data['subcategory'] = Subcategory::findOrFail($id);
+        $data['subcategory'] = subcategeory::findOrFail($id);
         $data['categories'] = Category::get();
         return view('admin.subcategories.edit', $data);
     }
@@ -56,7 +56,7 @@ class subcategoryController extends Controller
             'status' => 'required|in:active,inactive'
         ]);
 
-        $subcategory = Subcategory::findOrFail($id);
+        $subcategory = subcategeory::findOrFail($id);
 
         $subcategory->category_id = $request->category_id;
         $subcategory->name = $request->name;
@@ -71,7 +71,7 @@ class subcategoryController extends Controller
     }
             public function destroy($id)
             {
-$subcategory = Subcategory::findOrFail($id);
+$subcategory = subcategeory::findOrFail($id);
         $subcategory->delete();
 session()->flash('success', 'Subcategory deleted successfully');
         return redirect()->route('admin.subcategories');

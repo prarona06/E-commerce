@@ -41,8 +41,8 @@
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                          @foreach ($subcategories as sub$category)
+                             <tbody>
+                          @foreach ($subcategories as $subcategory)
                                     <tr>
                                         <th>{{ $loop->iteration }}</th>
                                           <td>{{ $subcategory->category->name }}</td>
