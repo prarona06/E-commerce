@@ -52,4 +52,17 @@ Route::controller(\App\Http\Controllers\Admin\subcategoryController::class)
      Route::patch('/update/{id}', 'update')->name('admin.subcategories.update');
      Route::delete('/delete/{id}', 'destroy')->name('admin.subcategories.delete');
 });
+
+#product _management
+
+Route::controller(\App\Http\Controllers\Admin\ProductController::class)
+->prefix('products')
+->group(function () {
+    Route::get('/', 'index')->name('admin.products');
+    Route::get('/create', 'create')->name('admin.products.create');
+    Route::post('/store', 'store')->name('admin.products.store');
+    Route::get('/edit/{id}', 'edit')->name('admin.products.edit');
+    Route::patch('/update/{id}', 'update')->name('admin.products.update');
+    Route::delete('/delete/{id}', 'destroy')->name('admin.products.delete');
+});
 });

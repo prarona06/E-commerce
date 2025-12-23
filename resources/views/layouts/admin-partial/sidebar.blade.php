@@ -238,6 +238,15 @@
               </a>
             </li>
 
+              <li class="nav-item {{ request()->is('admin/subcategories*') ? "menu-active" : "" }}">
+              <a href="{{ route('admin.subcategories') }}" class="nav-link ">
+                <i class="nav-icon fas fa-shopping-bag"></i>
+                <p>
+                  Product Management
+                </p>
+              </a>
+            </li>
+
 
             <li class="nav-item">
               <a href="#" class="nav-link">
